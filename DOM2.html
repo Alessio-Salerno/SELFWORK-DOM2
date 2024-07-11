@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea il Paragrafo</title>
+    <!-- GOOGLE FONT CDN  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CL:wght@100..400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <!--FINE COLLEGAMENTO GOOGLE FONT -->
+
+    <!-- STYLE -->
+    <style>
+        * {
+            font-family: "Roboto Mono";
+        }
+
+        /* DIV */
+        .titolo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .titolo-1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .text {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ID */
+        #titolo-2 {
+            width: 20%;
+            text-align: center;
+            height: 30px;
+        }
+
+        #text-area {
+            width: 20%;
+            text-align: center;
+            height: 100px;
+        }
+
+        /* BUTTON */
+        .button {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- TITOLO -->
+    <div class="titolo">
+        <h2>CREA IL TUO ARTICOLO</h2>
+    </div>
+
+    <!-- INPUT PER IL TITOLO -->
+    <div class="titolo-1">
+        <input type="text" id="titolo-2" placeholder="Inserisci il titolo">
+    </div>
+
+    <br>
+
+    <!-- TEXT AREA -->
+    <div class="text">
+        <textarea id="text-area" placeholder="Inserisci il testo"></textarea>
+    </div>
+
+    <br>
+
+    <!-- BUTTON -->
+    <div class="button">
+        <button onclick="createArticle()">Clicca qua</button>
+    </div>
+
+    <div id="articoloContenitore"></div>
+
+    <script>
+        // FUNZIONE creare articolo
+        function createArticle() {
+            let titolo = document.getElementById('titolo-2').value;
+            let paragrafo = document.getElementById('text-area').value;
+            let articoloContenitore = document.getElementById('articoloContenitore');
+
+
+            if( paragrafo == ""){
+               alert("L'articolo è vuoto");
+               return;
+            }
+
+
+
+
+            // Creazione Articoli
+            let article = document.createElement('div');
+            article.className = 'article';
+            
+
+            // Creazione titolo elementi  
+            let titoloArticolo = document.createElement('h2');
+            titoloArticolo.textContent = titolo;
+            article.appendChild(titoloArticolo);
+
+            // Creazione paragrafo
+            let articoloParagrafo = document.createElement('p');
+            articoloParagrafo.textContent = paragrafo;
+            article.appendChild(articoloParagrafo);
+
+          
+
+
+            // Creazione Data
+            let articoloData = document.createElement('p');
+            let date = new Date();
+            articoloData.textContent = `Data di pubblicazione : ${date.toLocaleDateString()}`; 
+            articoloData.style.fontStyle = 'italic';
+            article.appendChild(articoloData);
+
+            // Aggiungi l'articolo al contenitore
+            articoloContenitore.appendChild(article);
+        }
+    </script>
+</body>
+</html>
