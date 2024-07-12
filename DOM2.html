@@ -17,9 +17,11 @@
     
     
     <style>
+        
         *{
             font-family: "Montserrat", sans-serif;
         }
+        
         
     </style>
     
@@ -59,6 +61,7 @@
             // INSERIMENTO DATA ODIERNA E ORARIO
             let date = new Date();
             let formatoData = date.toLocaleDateString();
+            // INSERIMENTO ORARIO
             let formatoOra = date.toLocaleTimeString();
             
             
@@ -74,9 +77,15 @@
                 div.innerHTML = `<h2>${input.value}</h2><p>${textarea.value}</p><i>${formatoData}</i><br><i>${formatoOra}</i>`;
                 container.appendChild(div);
                 
+                input.value = '';
+                textarea.value = '';
                 
             }
         });
+        
+        
+        
+        
         
     </script>
     
